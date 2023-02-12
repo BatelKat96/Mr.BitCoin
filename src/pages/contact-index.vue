@@ -1,18 +1,25 @@
 <template>
   <div class="main-container">
     <h2>Your contacts</h2>
-    <ContactList v-if="contacts" @remove="removeContact" :contacts="contacts" />
+    <ContactFilter @filter="onSetFilterBy" />
+    <ContactList
+      v-if="contacts"
+      @remove="removeContact"
+      :contacts="filteredContact"
+    />
   </div>
 </template>
 
 <script>
 import { contactService } from "@/services/contact.service.js";
 import ContactList from "@/cmps/contact-list.vue";
+import ContactFilter from "@/cmps/contact-filter.vue";
 
 export default {
   data() {
     return {
       contacts: null,
+      filterBy: {},
     };
   },
   async created() {
@@ -25,10 +32,19 @@ export default {
         (contact) => contact._id !== contactId
       );
     },
+    onSetFilterBy(filterBy) {
+      this.filterBy = filterBy;
+    },
   },
-  computed: {},
+  computed: {
+    filteredContact() {
+      const regex = new RegExp(this.filterBy.txt, "i");
+      return this.contacts.filter((contact) => regex.test(contact.name));
+    },
+  },
   components: {
     ContactList,
+    ContactFilter,
   },
 };
 </script>
