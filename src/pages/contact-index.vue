@@ -1,5 +1,6 @@
 <template>
-  <div class="main-container">contact index</div>
+  <div class="main-container">contact</div>
+  <pre>{{ contacts }}</pre>
 </template>
 
 <script>
@@ -9,10 +10,12 @@ import { eventBus } from "@/services/eventBus.service.js";
 export default {
   data() {
     return {
-      contact: null,
+      contacts: null,
     };
   },
-  async created() {},
+  async created() {
+    this.contacts = await contactService.getContacts();
+  },
   methods: {},
   computed: {},
   components: {},

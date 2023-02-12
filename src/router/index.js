@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import HomeView from '../pages/HomeView.vue'
+import HomePage from '../pages/HomePage.vue'
 import ContactIndex from '../pages/contact-index.vue'
 import ContactDetails from '../pages/contact-details.vue'
 
@@ -9,7 +9,7 @@ const routerOptions = {
     routes: [
         {
             path: '/',
-            component: HomeView,
+            component: HomePage,
         },
         {
             path: '/contact',

@@ -1,6 +1,12 @@
 <template>
   <header>
     <h1>Mr. BitCoin</h1>
+    <p class="header-p">
+      {{ user.name }}
+      <br />
+      The current Bitcoin exchange rate:
+      <span v-if="currRate">{{ currRate }}</span>
+    </p>
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/contact">Contact</RouterLink>
@@ -10,5 +16,22 @@
 </template>
 
 <script>
-export default {};
+import { userService } from "@/services/user.service.js";
+import { bitcoinService } from "@/services/bitcoin.service.js";
+
+export default {
+  data() {
+    return {
+      user: null,
+      currRate: null,
+    };
+  },
+  async created() {
+    this.user = userService.getUser();
+    this.currRate = await bitcoinService.getRate();
+  },
+};
 </script>
+
+<style lang="sass">
+</style>
