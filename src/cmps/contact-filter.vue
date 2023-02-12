@@ -28,7 +28,4 @@ export default {
 </script>
 
 <style lang="scss">
-label {
-  margin-inline-end: 10px;
-}
 </style>

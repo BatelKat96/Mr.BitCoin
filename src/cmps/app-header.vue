@@ -4,13 +4,14 @@
     <p class="header-p">
       {{ user.name }}
       <br />
-      The current Bitcoin exchange rate:
+      The current rate:
       <span v-if="currRate">{{ currRate }}</span>
     </p>
     <nav>
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/contact">Contact</RouterLink>
       <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/contact">Contact</RouterLink>
+      <RouterLink to="/statistics">Statistics</RouterLink>
     </nav>
   </header>
 </template>
