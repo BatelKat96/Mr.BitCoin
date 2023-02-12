@@ -1,9 +1,9 @@
 <template>
   <article>
-    <h4>Name: {{ contact.name }}</h4>
-    <span>Phone number: {{ contact.phone }}</span>
+    <h4>{{ contact.name }}</h4>
+    <!-- <span>Phone number: {{ contact.phone }}</span>
     <br />
-    <span>Email address: {{ contact.email }}</span>
+    <span>Email address: {{ contact.email }}</span> -->
   </article>
 </template>
 

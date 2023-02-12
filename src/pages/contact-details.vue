@@ -1,6 +1,13 @@
 <template>
-  <div v-if="car" class="car-details">
-    contact details
+  <div v-if="contact" class="contact-details-selection">
+    <div class="contact-details-container">
+      <div>
+        <h2>{{ contact.name }}</h2>
+        <p>Email: {{ contact.email }}</p>
+        <p>Phone: {{ contact.phone }}</p>
+      </div>
+      <img :src="`https://robohash.org/${contact._id}.png`" />
+    </div>
     <RouterLink to="/contact">
       <button>Back</button>
     </RouterLink>
@@ -15,8 +22,12 @@ export default {
       contact: null,
     };
   },
-  async created() {},
+  async created() {
+    const contactId = this.$route.params._id;
+    this.contact = await contactService.getContactById(contactId);
+  },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+</style>

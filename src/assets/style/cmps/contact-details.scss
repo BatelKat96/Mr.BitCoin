@@ -1,11 +1,26 @@
-.car-details {
-    display: grid;
+.contact-details-selection {
 
-    padding: 10px;
-    background-color: darkseagreen;
-    margin-block-start: 10px;
-    
-    a {
-        justify-self: end;
+    .contact-details-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        // justify-content: center;
+        margin-block-end: 20px;
+
+        img {
+            object-fit: cover;
+            width: 150px;
+        }
+
+        a {
+            //   justify-self: end;
+            margin-inline-start: 20px;
+        }
+
+    }
+
+    button {
+        padding: 4px 8px;
+        cursor: pointer;
     }
 }

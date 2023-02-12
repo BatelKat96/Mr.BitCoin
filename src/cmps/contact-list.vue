@@ -13,6 +13,9 @@
           x
         </button>
         <ContactPreview :contact="contact" />
+        <RouterLink :to="`/contact/${contact._id}`">
+          <button>Details</button>
+        </RouterLink>
       </li>
     </ul>
   </section>
@@ -42,7 +45,7 @@ export default {
 .contact-preview-list {
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 10px;
 }
 .contact-preview {
@@ -56,6 +59,6 @@ export default {
   right: 7px;
   top: 0px;
   color: aliceblue;
-  font-size: 1.25em;
+  font-size: 2em;
 }
 </style>
