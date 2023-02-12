@@ -1,9 +1,9 @@
 <template>
-    <footer>
-        <p>Coffeerights 2023</p>
-    </footer>
+  <footer>
+    <p>Coffeerights: Dror & Batel 2023</p>
+  </footer>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>

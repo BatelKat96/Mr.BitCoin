@@ -19,8 +19,4 @@ export default {
 </script>
 
 <style>
-h4 {
-  margin: 0;
-  margin-block-end: 10px;
-}
 </style>

@@ -40,25 +40,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.contact-preview-list {
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
-}
-.contact-preview {
-  border: 2px solid aliceblue;
-  margin: 10px;
-  padding: 15px;
-  position: relative;
-}
-.btn-remove {
-  position: absolute;
-  right: 7px;
-  top: 0px;
-  color: aliceblue;
-  font-size: 2em;
-}
-</style>
