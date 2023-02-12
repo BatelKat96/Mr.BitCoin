@@ -6,10 +6,15 @@
         v-for="contact in contacts"
         :key="contact._id"
       >
+        <button
+          class="clean-btn btn-remove"
+          @click="onRemoveContact(contact._id)"
+        >
+          x
+        </button>
         <ContactPreview :contact="contact" />
       </li>
     </ul>
-    <!-- <pre>{{ contacts }}</pre> -->
   </section>
 </template>
 
@@ -22,7 +27,11 @@ export default {
       required: true,
     },
   },
-  methods: {},
+  methods: {
+    onRemoveContact(contactId) {
+      this.$emit("remove", contactId);
+    },
+  },
   components: {
     ContactPreview,
   },
@@ -30,16 +39,23 @@ export default {
 </script>
 
 <style>
+.contact-preview-list {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
 .contact-preview {
   border: 2px solid aliceblue;
   margin: 10px;
   padding: 15px;
+  position: relative;
 }
-
-.contact-preview-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 10px;
+.btn-remove {
+  position: absolute;
+  right: 7px;
+  top: 0px;
+  color: aliceblue;
+  font-size: 1.25em;
 }
 </style>
