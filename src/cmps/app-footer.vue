@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>Coffeerights: Dror & Batel 2023</p>
+    <p>Coffeerights2023</p>
   </footer>
 </template>
 

@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomePage from '../pages/HomePage.vue'
 import ContactIndex from '../pages/contact-index.vue'
 import ContactDetails from '../pages/contact-details.vue'
+import ContactEdit from '../pages/contact-edit.vue'
 import Statistics from '../pages/statistics.vue'
 
 const routerOptions = {
@@ -21,9 +22,14 @@ const routerOptions = {
             component: ContactDetails,
         },
         {
-            path: '/statistics/',
+            path: '/contact/edit/:_id?',
+            component: ContactEdit,
+        },
+        {
+            path: '/statistics',
             component: Statistics,
         },
+
         {
             path: '/about',
             // route level code-splitting

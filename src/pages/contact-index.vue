@@ -2,11 +2,10 @@
   <div class="main-container">
     <h2>Your contacts</h2>
     <ContactFilter @filter="onSetFilterBy" />
-    <ContactList
-      v-if="contacts"
-      @remove="removeContact"
-      :contacts="filteredContact"
-    />
+    <RouterLink class="add-link" to="/contact/edit"
+      ><button class="primary">Add a Contact</button></RouterLink
+    >
+    <ContactList v-if="contacts" @remove="removeContact" :contacts="contacts" />
   </div>
 </template>
 
@@ -23,9 +22,12 @@ export default {
     };
   },
   async created() {
-    this.contacts = await contactService.getContacts();
+    this.loadContact();
   },
   methods: {
+    async loadContact() {
+      this.contacts = await contactService.getContacts(this.filterBy);
+    },
     async removeContact(contactId) {
       await contactService.deleteContact(contactId);
       this.contacts = this.contacts.filter(
@@ -34,14 +36,10 @@ export default {
     },
     onSetFilterBy(filterBy) {
       this.filterBy = filterBy;
+      this.loadContact();
     },
   },
-  computed: {
-    filteredContact() {
-      const regex = new RegExp(this.filterBy.txt, "i");
-      return this.contacts.filter((contact) => regex.test(contact.name));
-    },
-  },
+  computed: {},
   components: {
     ContactList,
     ContactFilter,
