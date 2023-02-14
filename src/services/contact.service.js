@@ -2,7 +2,7 @@ import { asyncStorageService } from './async-storage.service'
 import { storageService } from './storage.service'
 import { utilService } from './util.service'
 
-const STORAGE_KEY = 'contactDB'
+const STORAGE_KEY_CONTACT = 'contact_db'
 
 _createContacts()
 
@@ -16,7 +16,7 @@ export const contactService = {
 }
 
 async function query(filterBy = { txt: '' }) {
-    let contacts = await asyncStorageService.query(STORAGE_KEY)
+    let contacts = await asyncStorageService.query(STORAGE_KEY_CONTACT)
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')
         contacts = contacts.filter(contact => regex.test(contact.name))
@@ -25,21 +25,21 @@ async function query(filterBy = { txt: '' }) {
 }
 
 function getById(contactId) {
-    return asyncStorageService.get(STORAGE_KEY, contactId)
+    return asyncStorageService.get(STORAGE_KEY_CONTACT, contactId)
 }
 
 async function remove(contactId) {
-    await asyncStorageService.remove(STORAGE_KEY, contactId)
+    await asyncStorageService.remove(STORAGE_KEY_CONTACT, contactId)
 }
 
 async function save(contact) {
     let savedContact
     if (contact._id) {
-        savedContact = await asyncStorageService.put(STORAGE_KEY, contact)
+        savedContact = await asyncStorageService.put(STORAGE_KEY_CONTACT, contact)
     } else {
         // Later, owner is set by the backend
         // contact.owner = userService.getLoggedinUser()
-        savedContact = await asyncStorageService.post(STORAGE_KEY, contact)
+        savedContact = await asyncStorageService.post(STORAGE_KEY_CONTACT, contact)
     }
     return savedContact
 }
@@ -57,7 +57,7 @@ function getDefaultFilter() {
 }
 
 function _createContacts() {
-    let contacts = storageService.loadFromStorage(STORAGE_KEY)
+    let contacts = storageService.loadFromStorage(STORAGE_KEY_CONTACT)
     if (!contacts || !contacts.length) {
         contacts = [
             {
@@ -194,6 +194,6 @@ function _createContacts() {
                 "imgId": utilService.getRandomInt(0, 3)
             }
         ]
-        storageService.saveToStorage(STORAGE_KEY, contacts)
+        storageService.saveToStorage(STORAGE_KEY_CONTACT, contacts)
     }
 }

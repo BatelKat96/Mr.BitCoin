@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 main {
-  min-height: calc(90vh - 4rem);
+  min-height: calc(80.5vh);
 }
 nav a.router-link-exact-active {
   color: var(--color-text);

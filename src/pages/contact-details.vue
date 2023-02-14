@@ -9,7 +9,7 @@
       <img :src="`https://robohash.org/${contact._id}.png`" />
     </div>
     <RouterLink to="/contact">
-      <button>Back</button>
+      <button class="btn-back">Back</button>
     </RouterLink>
   </div>
 </template>

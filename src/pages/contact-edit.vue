@@ -18,7 +18,7 @@
           v-model.number="contact.phone"
           placeholder="Enter contact phone..."
         />
-        <button class="primary">Save</button>
+        <button class="btn-save">Save</button>
       </form>
       <img
         v-if="contact._id"
@@ -26,7 +26,9 @@
         alt=""
       />
     </div>
-    <RouterLink to="/contact"> Back </RouterLink>
+    <RouterLink to="/contact"></RouterLink>
+      <button class="btn-back">Back</button>
+    </RouterLink>
   </div>
 </template>
 

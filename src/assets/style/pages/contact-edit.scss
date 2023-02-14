@@ -13,7 +13,6 @@
         }
 
         a {
-            //   justify-self: end;
             margin-inline-start: 20px;
         }
 
@@ -27,12 +26,10 @@
             padding: 5px;
         }
 
+        .btn-save {
+            width: fit-content;
+            margin-top: 10px;
+        }
     }
 
-    button {
-        padding: 4px 8px;
-        cursor: pointer;
-        width: fit-content;
-        margin-top: 10px;
-    }
 }

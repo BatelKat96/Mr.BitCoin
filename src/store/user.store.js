@@ -2,19 +2,15 @@ import { userService } from "../services/user.service.js"
 
 export const userStore = {
     state: {
-        user: userService.getLoggedinUser(),
+        user: null,
+        // user: userService.getLoggedinUser(),
     },
     getters: {
-        user({ user }) { return user },
-        // products(state) {
-        //     return []
-        // },
+        user({ user }) {
+            return user
+        },
     },
     mutations: {
-        updateOrder(state, { order }) {
-            const idx = state.user.orders.findIndex(o => o._id === order._id)
-            state.user.orders.splice(idx, 1, order)
-        },
         setUser(state, { user }) {
             state.user = user
         },
@@ -23,20 +19,45 @@ export const userStore = {
         }
     },
     actions: {
-        checkout({ commit, getters }) {
-            return userService.addOrder(getters.cart, getters.cartTotal)
-                .then(user => {
-                    commit({ type: 'setUser', user })
-                    commit({ type: 'clearCart' })
-                    return user.balance
-                })
+        async setLogginUser({ commit }) {
+            try {
+                const user = await userService.getLoggedinUser()
+                commit({ type: 'setUser', user })
+            } catch (err) {
+                console.log('Failed to set user', err)
+                throw err
+            }
+            // return currUser
         },
-        changeOrderStatus({ commit }, { orderId, status }) {
-            return userService.changeOrderStatus(orderId, status)
-                .then(order => {
-                    commit({ type: 'updateOrder', order })
-                    return order
-                })
+        async signup({ commit }, { credentials }) {
+            try {
+                const user = await userService.signup(credentials)
+                commit({ type: 'setUser', user })
+                return user
+            } catch (err) {
+                console.log('Failed to set user', err)
+                throw err
+            }
+        },
+        async login({ commit }, { credentials }) {
+            try {
+                const user = await userService.login(credentials)
+                commit({ type: 'setUser', user })
+                return user
+            } catch (err) {
+                console.log('Failed to set user', err)
+                throw err
+            }
+        },
+        async logout({ commit }) {
+            try {
+                await userService.logout()
+                const empty = null
+                commit({ type: 'setUser', empty })
+            } catch (err) {
+                console.log('Failed to set user', err)
+                throw err
+            }
         },
         deposit(context, { amount }) {
             console.log('context', context)

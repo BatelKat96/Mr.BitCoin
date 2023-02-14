@@ -1,14 +1,18 @@
 <template>
   <header>
     <h1>Mr. BitCoin</h1>
-    <p class="header-p">
-      {{ user.name }}
+    <p v-if="currUser" class="header-p">
+      {{ currUser.name }}
+      <span> <button @click="onLogout">Logout</button></span>
       <br />
+    </p>
+    <p>
       The current rate:
       <span v-if="currRate">{{ currRate }}</span>
     </p>
+
     <nav>
-      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/home">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
       <RouterLink to="/contact">Contact</RouterLink>
       <RouterLink to="/statistics">Statistics</RouterLink>
@@ -17,19 +21,39 @@
 </template>
 
 <script>
-import { userService } from "@/services/user.service.js";
 import { bitcoinService } from "@/services/bitcoin.service.js";
 
 export default {
   data() {
     return {
-      user: null,
       currRate: null,
     };
   },
-  async created() {
-    this.user = userService.getLoggedinUser();
-    this.currRate = await bitcoinService.getRate();
+  created() {
+    this.$store.dispatch({ type: "setLogginUser" });
+    this.getRate();
+  },
+  computed: {
+    currUser() {
+      return this.$store.getters.user;
+    },
+  },
+  methods: {
+    async getRate() {
+      try {
+        this.currRate = await bitcoinService.getRate();
+      } catch (err) {
+        console.log("Cant load rate");
+      }
+    },
+    async onLogout() {
+      try {
+        await this.$store.dispatch({ type: "logout" });
+        // this.$router.push("/home");
+      } catch (err) {
+        showErrorMsg(`Logout failed`);
+      }
+    },
   },
 };
 </script>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import HomePage from '../pages/HomePage.vue'
+import LoginSignUp from '../pages/login-signup.vue'
 import ContactIndex from '../pages/contact-index.vue'
 import ContactDetails from '../pages/contact-details.vue'
 import ContactEdit from '../pages/contact-edit.vue'
@@ -11,6 +12,10 @@ const routerOptions = {
     routes: [
         {
             path: '/',
+            component: LoginSignUp,
+        },
+        {
+            path: '/home',
             component: HomePage,
         },
         {
