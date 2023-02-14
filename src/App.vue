@@ -1,3 +1,12 @@
+  
+<template>
+  <AppHeader />
+  <main class="main-container">
+    <RouterView />
+  </main>
+  <AppFooter />
+  <UserMsg />
+</template>
 <script>
 import AppHeader from "@/cmps/app-header.vue";
 import AppFooter from "@/cmps/app-footer.vue";
@@ -11,15 +20,6 @@ export default {
   },
 };
 </script>
-
-<template>
-  <AppHeader />
-  <main>
-    <RouterView />
-  </main>
-  <AppFooter />
-  <UserMsg />
-</template>
 
 <style scoped>
 main {

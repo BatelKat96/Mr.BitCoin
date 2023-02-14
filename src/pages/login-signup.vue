@@ -1,10 +1,5 @@
 <template>
   <section>
-    <h1>Welcome to Mr.BitCoin</h1>
-    <button className="btn-link" @click="onToggleSignup">
-      {{ !isSignup ? "Signup" : "Login" }}
-    </button>
-
     <div v-if="!isSignup">
       <h2>Login</h2>
       <form @submit.prevent="onLogin">
@@ -38,6 +33,13 @@
         </fieldset>
       </form>
     </div>
+
+    <p>
+      Would you like to
+      <button className="btn-link" @click="onToggleSignup">
+        {{ !isSignup ? "Signup" : "Login" }}
+      </button>
+    </p>
   </section>
 </template>
 

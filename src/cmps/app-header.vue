@@ -1,22 +1,27 @@
-<template>
-  <header>
-    <h1>Mr. BitCoin</h1>
-    <p v-if="currUser" class="header-p">
-      {{ currUser.name }}
-      <span> <button @click="onLogout">Logout</button></span>
-      <br />
-    </p>
-    <p>
-      The current rate:
-      <span v-if="currRate">{{ currRate }}</span>
-    </p>
+<template >
+  <header class="main-container">
+    <div class="header-container">
+      <div class="nav-container">
+        <h1>Mr. <br />BitCoin</h1>
 
-    <nav>
-      <RouterLink to="/home">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/contact">Contact</RouterLink>
-      <RouterLink to="/statistics">Statistics</RouterLink>
-    </nav>
+        <nav>
+          <RouterLink to="/home">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/contact">Contact</RouterLink>
+          <RouterLink to="/statistics">Statistics</RouterLink>
+          <RouterLink v-if="!currUser" to="/"> Login</RouterLink>
+        </nav>
+      </div>
+      <p v-if="currUser" class="header-p">
+        {{ currUser.name }}
+        <span> <button @click="onLogout">Logout</button></span>
+      </p>
+      <p class="rate">
+        The current rate:
+        <br />
+        <span v-if="currRate">{{ currRate }}</span>
+      </p>
+    </div>
   </header>
 </template>
 
