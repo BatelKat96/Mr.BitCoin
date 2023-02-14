@@ -10,36 +10,30 @@
 </template>
 
 <script>
-import { contactService } from "@/services/contact.service.js";
+// import { contactService } from "@/services/contact.service.js";
 import ContactList from "@/cmps/contact-list.vue";
 import ContactFilter from "@/cmps/contact-filter.vue";
 
 export default {
-  data() {
-    return {
-      contacts: null,
-      filterBy: {},
-    };
-  },
   async created() {
     this.loadContact();
   },
   methods: {
     async loadContact() {
-      this.contacts = await contactService.query(this.filterBy);
+      this.$store.dispatch({ type: "loadContacts" });
     },
     async removeContact(contactId) {
-      await contactService.remove(contactId);
-      this.contacts = this.contacts.filter(
-        (contact) => contact._id !== contactId
-      );
+      this.$store.dispatch({ type: "removeContact", contactId });
     },
     onSetFilterBy(filterBy) {
-      this.filterBy = filterBy;
-      this.loadContact();
+      this.$store.dispatch({ type: "loadContacts", filterBy });
     },
   },
-  computed: {},
+  computed: {
+    contacts() {
+      return this.$store.getters.contacts;
+    },
+  },
   components: {
     ContactList,
     ContactFilter,

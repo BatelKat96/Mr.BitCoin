@@ -5,9 +5,9 @@ const user = {
 }
 
 export const userService = {
-    getUser,
+    getLoggedinUser,
 }
 
-function getUser() {
+function getLoggedinUser() {
     return user
 }

@@ -21,7 +21,7 @@ export const contactStore = {
             state.contacts.splice(idx, 1)
         },
         addContact(state, { contact }) {
-            state.contacts.push(contact)
+            state.contacts.unshift(contact)
         },
         updateContact(state, { contact }) {
             const idx = state.contacts.findIndex(p => p._id === contact._id)
@@ -30,11 +30,13 @@ export const contactStore = {
 
     },
     actions: {
-        loadContacts({ commit }) {
-            contactService.query()
-                .then((contacts) => {
-                    commit({ type: 'setContacts', contacts })
-                })
+        async loadContacts({ commit }, { filterBy }) {
+            try {
+                const contacts = await contactService.query(filterBy)
+                commit({ type: 'setContacts', contacts })
+            } catch (err) {
+                throw err
+            }
         },
         async removeContact({ commit }, payload) {
             commit(payload)
@@ -45,13 +47,15 @@ export const contactStore = {
                 throw err
             }
         },
-        saveContact({ commit }, { contact }) {
+        async saveContact({ commit }, { contact }) {
             const actionType = (contact._id) ? 'updateContact' : 'addContact'
-            return contactService.save(contact)
-                .then((savedContact) => {
-                    commit({ type: actionType, contact: savedContact })
-                    return savedContact
-                })
-        },
+            try {
+                const savedContact = await contactService.save(contact)
+                commit({ type: actionType, contact: savedContact })
+                return savedContact
+            } catch (err) {
+                throw err
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ export default {
     };
   },
   async created() {
-    this.user = userService.getUser();
+    this.user = userService.getLoggedinUser();
     this.currRate = await bitcoinService.getRate();
   },
 };
