@@ -26,7 +26,7 @@
         alt=""
       />
     </div>
-    <RouterLink to="/contact"></RouterLink>
+    <RouterLink to="/contact">
       <button class="btn-back">Back</button>
     </RouterLink>
   </div>
