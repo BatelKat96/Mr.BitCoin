@@ -13,6 +13,7 @@
 // import { contactService } from "@/services/contact.service.js";
 import ContactList from "@/cmps/contact-list.vue";
 import ContactFilter from "@/cmps/contact-filter.vue";
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
 
 export default {
   async created() {
@@ -23,7 +24,12 @@ export default {
       this.$store.dispatch({ type: "loadContacts" });
     },
     async removeContact(contactId) {
-      this.$store.dispatch({ type: "removeContact", contactId });
+      try {
+        await this.$store.dispatch({ type: "removeContact", contactId });
+        showSuccessMsg(`Contact ${contactId} removed`);
+      } catch (err) {
+        showErrorMsg(`Remove contact ${contactId} failed`);
+      }
     },
     onSetFilterBy(filterBy) {
       this.$store.dispatch({ type: "loadContacts", filterBy });

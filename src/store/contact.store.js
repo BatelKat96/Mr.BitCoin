@@ -4,6 +4,7 @@ import { contactService } from "../services/contact.service"
 export const contactStore = {
     state: {
         contacts: [],
+        // lastRemovedContact: null
     },
 
     getters: {
@@ -39,10 +40,9 @@ export const contactStore = {
             }
         },
         async removeContact({ commit }, payload) {
-            commit(payload)
             try {
-                await contactService.remove(payload.contactId)
-                commit({ type: 'removeContact' })
+                await contactService.remove(payload.contactId4)
+                commit(payload)
             } catch (err) {
                 throw err
             }
