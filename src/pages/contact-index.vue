@@ -26,10 +26,10 @@ export default {
   },
   methods: {
     async loadContact() {
-      this.contacts = await contactService.getContacts(this.filterBy);
+      this.contacts = await contactService.query(this.filterBy);
     },
     async removeContact(contactId) {
-      await contactService.deleteContact(contactId);
+      await contactService.remove(contactId);
       this.contacts = this.contacts.filter(
         (contact) => contact._id !== contactId
       );

@@ -1,9 +1,10 @@
 @import './base.scss';
 
+@import 'pages/contact-details.scss';
+@import 'pages/contact-edit.scss';
 
 @import 'cmps/app-header.scss';
 @import 'cmps/app-footer.scss';
-@import 'cmps/contact-details.scss';
 @import 'cmps/contact-filter.scss';
 @import 'cmps/contact-list.scss';
 @import 'cmps/user-msg.scss';

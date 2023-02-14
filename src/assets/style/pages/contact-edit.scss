@@ -1,0 +1,38 @@
+.contact-edit-selection {
+
+    .contact-edit-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-block-end: 20px;
+
+        img {
+            object-fit: cover;
+            width: 150px;
+            justify-self: flex-start;
+        }
+
+        a {
+            //   justify-self: end;
+            margin-inline-start: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+    }
+
+    button {
+        padding: 4px 8px;
+        cursor: pointer;
+        width: fit-content;
+        margin-top: 10px;
+    }
+}

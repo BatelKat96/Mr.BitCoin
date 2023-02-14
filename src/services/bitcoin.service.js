@@ -6,22 +6,22 @@ export const bitcoinService = {
 }
 
 import { utilService } from './util.service'
+import { storageService } from './storage.service.js'
 
 const RATE = 'rates'
 const MARKET_PRICE_HISTORY = 'market-price-history'
 const AVG_BLOCK_SIZE = 'average-block-size'
 
-import { storageService } from '@/services/storage.service.js'
 import axios from 'axios'
 
 async function getRate() {
-    let rate = storageService.load(RATE)
+    let rate = storageService.loadFromStorage(RATE)
     if (rate) return rate
     try {
         const { data } = await axios.get('https://blockchain.info/tobtc?currency=USD&value=1')
         rate = data
         console.log('rate:', rate)
-        storageService.save(RATE, rate)
+        storageService.saveToStorage(RATE, rate)
         return rate
     } catch (err) {
         throw new Error('Cant get rates')
@@ -29,14 +29,14 @@ async function getRate() {
 }
 
 async function getAvgBlockSize() {
-    let avg = storageService.load(AVG_BLOCK_SIZE)
+    let avg = storageService.loadFromStorage(AVG_BLOCK_SIZE)
     if (avg.length > 0) return avg
     if (!avg || !avg.length) {
         try {
             const { data } = await axios.get('https://api.blockchain.info/charts/avg-block-size?timespan=5months&format=json&cors=true')
             avg = data
             console.log('avg:', avg)
-            storageService.save(AVG_BLOCK_SIZE, avg)
+            storageService.saveToStorage(AVG_BLOCK_SIZE, avg)
             return avg
         } catch (err) {
             throw new Error('Cant get avrges')
@@ -47,7 +47,7 @@ async function getAvgBlockSize() {
 
 async function getMarketPriceHistory() {
     try {
-        let priceHistoryByDay = storageService.load(MARKET_PRICE_HISTORY)
+        let priceHistoryByDay = storageService.loadFromStorage(MARKET_PRICE_HISTORY)
         if (!priceHistoryByDay || priceHistoryByDay.length === 0) {
             let { data } = await axios.get(
                 'https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true'
@@ -55,7 +55,7 @@ async function getMarketPriceHistory() {
             priceHistoryByDay = data.values
             console.log('priceHistoryByDay:', priceHistoryByDay)
 
-            storageService.save(MARKET_PRICE_HISTORY, priceHistoryByDay)
+            storageService.saveToStorage(MARKET_PRICE_HISTORY, priceHistoryByDay)
             return priceHistoryByDay
         }
 
