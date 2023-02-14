@@ -23,9 +23,15 @@ _createUsers()
 
 
 async function login(userCred) {
+    console.log('userCred:', userCred)
+
     try {
         const users = await asyncStorageService.query(STORAGE_KEY_USER)
-        const user = users.find(user => user.username === userCred.username)
+        console.log('users:', users)
+
+        const user = users.find(user => user.name.toLowerCase() === userCred.name.toLowerCase())
+        console.log('user:', user)
+
         if (user) {
             return saveLocalUser(user)
         } else {
@@ -84,7 +90,7 @@ function _createUsers() {
     if (!users || !users.length) {
         users = []
         users.push(_createUser('Ben', 100, []))
-        users.push(_createUser('Lola Yush', 100, []))
+        users.push(_createUser('Lola', 100, []))
 
         console.log('usersfftt:', users)
         storageService.saveToStorage(STORAGE_KEY_USER, users)

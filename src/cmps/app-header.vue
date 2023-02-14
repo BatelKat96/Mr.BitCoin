@@ -12,14 +12,15 @@
           <RouterLink v-if="!currUser" to="/"> Login</RouterLink>
         </nav>
       </div>
-      <p v-if="currUser" class="header-p">
-        {{ currUser.name }}
-        <span> <button @click="onLogout">Logout</button></span>
-      </p>
       <p class="rate">
         The current rate:
         <br />
         <span v-if="currRate">{{ currRate }}</span>
+      </p>
+      <p v-if="currUser" class="header-p">
+        Hi {{ currUser.name }}
+        <!-- <br /> -->
+        <span> <button @click="onLogout">Logout</button></span>
       </p>
     </div>
   </header>

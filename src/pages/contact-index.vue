@@ -1,16 +1,19 @@
 <template>
   <div class="main-container">
     <h2>Your contacts</h2>
-    <ContactFilter @filter="onSetFilterBy" />
-    <RouterLink class="add-link" to="/contact/edit"
-      ><button class="primary">Add a Contact</button></RouterLink
-    >
+    <div class="contact-index-actions">
+      <ContactFilter @filter="onSetFilterBy" />
+
+      <RouterLink class="add-link" to="/contact/edit"
+        ><button class="primary">Add a Contact</button></RouterLink
+      >
+    </div>
+    <p v-if="!contacts">Logging</p>
     <ContactList v-if="contacts" @remove="removeContact" :contacts="contacts" />
   </div>
 </template>
 
 <script>
-// import { contactService } from "@/services/contact.service.js";
 import ContactList from "@/cmps/contact-list.vue";
 import ContactFilter from "@/cmps/contact-filter.vue";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
