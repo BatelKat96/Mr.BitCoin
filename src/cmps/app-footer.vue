@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>Coffeerights2023</p>
+    <p>Batel Katiei-2023</p>
   </footer>
 </template>
 
