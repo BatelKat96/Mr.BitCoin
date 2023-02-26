@@ -22,8 +22,7 @@
       </form>
       <img
         v-if="contact._id"
-        :src="'https://robohash.org/' + contact._id"
-        alt=""
+        :src="`https://randomuser.me/api/portraits/men/${contact.imgId}.jpg`"
       />
     </div>
     <RouterLink to="/contact">

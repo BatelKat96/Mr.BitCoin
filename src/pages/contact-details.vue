@@ -6,7 +6,9 @@
         <p>Email: {{ contact.email }}</p>
         <p>Phone: {{ contact.phone }}</p>
       </div>
-      <img :src="`https://robohash.org/${contact._id}.png`" />
+      <img
+        :src="`https://randomuser.me/api/portraits/women/${contact.imgId}.jpg`"
+      />
     </div>
     <RouterLink to="/contact">
       <button class="btn-back">Back</button>

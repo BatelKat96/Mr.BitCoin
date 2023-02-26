@@ -2,7 +2,6 @@ export const bitcoinService = {
     getRate,
     getMarketPriceHistory,
     getAvgBlockSize,
-
 }
 
 import { utilService } from './util.service'
@@ -30,9 +29,13 @@ async function getRate() {
 
 async function getAvgBlockSize() {
     let avg = storageService.loadFromStorage(AVG_BLOCK_SIZE)
-    if (avg.length > 0) return avg
+    console.log('avg:', avg)
+
+    if (avg && avg.length > 0) return avg
     if (!avg || !avg.length) {
         try {
+            console.log('in:')
+
             const { data } = await axios.get('https://api.blockchain.info/charts/avg-block-size?timespan=5months&format=json&cors=true')
             avg = data
             console.log('avg:', avg)
@@ -53,10 +56,7 @@ async function getMarketPriceHistory() {
                 'https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true'
             )
             priceHistoryByDay = data.values
-            console.log('priceHistoryByDay:', priceHistoryByDay)
-
             storageService.saveToStorage(MARKET_PRICE_HISTORY, priceHistoryByDay)
-            return priceHistoryByDay
         }
 
         // get formatted days
@@ -71,7 +71,7 @@ async function getMarketPriceHistory() {
         // create object to send back to cmp
         const priceHistory = {
             labels: formattedDates,
-            datasets: [{ label: 'Prices', data: prices, backgroundColor: '#ffc107' }],
+            datasets: [{ label: 'Prices (USD)', data: prices, backgroundColor: '#ffc107' }],
         }
         return priceHistory
     } catch (err) {

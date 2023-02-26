@@ -1,53 +1,23 @@
 <template>
-  <div class="container">
-    <Bar v-if="loaded" :data="chartData" />
-  </div>
+  <section class="statistics-section">
+    <h2>Statistics</h2>
+    <PriceHistoryChart />
+
+    <AvgChart />
+  </section>
 </template>
 
 <script>
-import { Bar } from "vue-chartjs";
-import { bitcoinService } from "@/services/bitcoin.service.js";
-
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-} from "chart.js";
-
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-);
+import PriceHistoryChart from "../cmps/price-history-chart.vue";
+import AvgChart from "../cmps/avg-chart.vue";
 
 export default {
-  name: "BarChart",
-  components: { Bar },
-  data() {
-    return {
-      loaded: false,
-      chartData: null,
-    };
-  },
-  async mounted() {
-    this.loaded = false;
-
-    try {
-      const priceHistory = await bitcoinService.getMarketPriceHistory();
-      this.chartData = priceHistory;
-
-      this.loaded = true;
-    } catch (e) {
-      console.error(e);
-    }
+  components: {
+    PriceHistoryChart,
+    AvgChart,
   },
 };
 </script>
 
+<style>
+</style>
