@@ -7,18 +7,24 @@
         :key="contact._id"
       >
         <button
-          class="clean-btn btn-remove"
           @click="onRemoveContact(contact._id)"
+          class="material-symbols-outlined btn-remove"
+          title="Remove"
         >
-          x
+          delete
         </button>
+
         <ContactPreview :contact="contact" />
-        <RouterLink :to="`/contact/${contact._id}`">
-          <button>Details</button>
-        </RouterLink>
-        <RouterLink :to="`/contact/edit/${contact._id}`">
-          <button>Edit</button>
-        </RouterLink>
+        <div class="preview-actions">
+          <RouterLink :to="`/contact/${contact._id}`">
+            <button class="material-symbols-outlined" title="Details">
+              info
+            </button>
+          </RouterLink>
+          <RouterLink :to="`/contact/edit/${contact._id}`">
+            <button class="material-symbols-outlined" title="Edit">Edit</button>
+          </RouterLink>
+        </div>
       </li>
     </ul>
   </section>

@@ -5,16 +5,9 @@
 
     .contact-edit-container {
         display: flex;
-        align-items: center;
-        gap: 20px;
+        align-items: start;
+        gap: 100px;
         margin-block-end: 20px;
-
-        img {
-            object-fit: cover;
-            width: 150px;
-            justify-self: flex-start;
-            border-radius: 50%;
-        }
 
         a {
             margin-inline-start: 20px;

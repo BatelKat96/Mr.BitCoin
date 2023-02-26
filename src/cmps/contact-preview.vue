@@ -1,9 +1,9 @@
 <template>
-  <article>
-    <h4>{{ contact.name }}</h4>
-    <!-- <span>Phone number: {{ contact.phone }}</span>
-    <br />
-    <span>Email address: {{ contact.email }}</span> -->
+  <article class="contact-preview-article">
+    <h3>{{ contact.name }}</h3>
+    <img
+      :src="`https://randomuser.me/api/portraits/men/${contact.imgId}.jpg`"
+    />
   </article>
 </template>
 
