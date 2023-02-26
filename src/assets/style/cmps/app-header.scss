@@ -1,17 +1,15 @@
 header {
+    background-color: rgb(22, 22, 22);
+    box-shadow: 0px 0px 4px 3px #dadada;
 
     .header-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
         height: 10vh;
         padding-block: 15px;
-
     }
 
-    background-color: rgb(22, 22, 22);
-    box-shadow: 0px 0px 4px 3px #dadada;
 
     .nav-container {
         display: flex;
@@ -28,11 +26,7 @@ header {
         &:hover {
             color: gold;
         }
-
-
     }
-
-
 
     .router-link-active {
         color: gold;
