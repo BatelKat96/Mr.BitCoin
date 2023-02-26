@@ -45,7 +45,7 @@
 
 <script>
 import { userService } from "../services/user.service.js";
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
+import { showErrorMsg } from "../services/event-bus.service.js";
 
 export default {
   data() {
@@ -69,8 +69,6 @@ export default {
     },
     async onSignup() {
       const userToLogin = { ...this.user };
-      console.log("userToLogin:", userToLogin);
-
       try {
         await this.$store.dispatch({
           type: "signup",

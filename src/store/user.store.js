@@ -59,13 +59,16 @@ export const userStore = {
                 throw err
             }
         },
-        deposit(context, { amount }) {
-            console.log('context', context)
-            return userService.updateBalance(amount)
-                .then(balance => {
-                    context.commit({ type: 'setUserBalance', balance })
-                    return balance
-                })
+        async deposit({ commit }, { amount, currContact }) {
+            try {
+                const balance = await userService.updateBalance(amount, currContact)
+                commit({ type: 'setUserBalance', balance })
+                return balance
+            }
+            catch (err) {
+                console.log('Failed to set user', err)
+                throw err
+            }
         },
 
     }
