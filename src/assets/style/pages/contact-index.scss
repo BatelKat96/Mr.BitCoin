@@ -1,6 +1,13 @@
-.contact-index-actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+.contact-index-section {
+
+    margin: 0 auto;
+    flex-grow: 1;
+    padding: 35px;
+
+    .contact-index-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
 }

@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import HomePage from '../pages/HomePage.vue'
+import HomePage from '../pages/home-page.vue'
 import LoginSignUp from '../pages/login-signup.vue'
 import ContactIndex from '../pages/contact-index.vue'
 import ContactDetails from '../pages/contact-details.vue'
@@ -40,7 +40,7 @@ const routerOptions = {
             // route level code-splitting
             // this generates a separate chunk (About.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import('../pages/AboutView.vue'),
+            component: () => import('../pages/about-page.vue'),
         },
     ],
 }

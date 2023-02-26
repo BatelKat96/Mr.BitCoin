@@ -1,11 +1,6 @@
 <template >
   <header>
     <h1>Mr. <br />₿itCoin</h1>
-    <p class="rate">
-      The current rate:
-      <br />
-      <span v-if="currRate"> ₿{{ currRate }}</span>
-    </p>
     <p v-if="currUser" class="header-p">
       Hi {{ currUser.name }}
       <span> <button @click="onLogout">Logout</button></span>
@@ -14,8 +9,6 @@
 </template>
 
 <script>
-import { bitcoinService } from "@/services/bitcoin.service.js";
-
 export default {
   data() {
     return {
@@ -24,7 +17,6 @@ export default {
   },
   created() {
     this.$store.dispatch({ type: "setLogginUser" });
-    this.getRate();
   },
   computed: {
     currUser() {
@@ -32,13 +24,6 @@ export default {
     },
   },
   methods: {
-    async getRate() {
-      try {
-        this.currRate = await bitcoinService.getRate();
-      } catch (err) {
-        console.log("Cant load rate");
-      }
-    },
     async onLogout() {
       try {
         await this.$store.dispatch({ type: "logout" });

@@ -13,7 +13,7 @@ const AVG_BLOCK_SIZE = 'average-block-size'
 
 import axios from 'axios'
 
-async function getRate() {
+async function getRate(value) {
     let rate = storageService.loadFromStorage(RATE)
     if (rate) return rate
     try {
