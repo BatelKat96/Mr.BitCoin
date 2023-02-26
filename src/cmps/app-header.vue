@@ -1,28 +1,15 @@
 <template >
-  <header class="main-container">
-    <div class="header-container">
-      <div class="nav-container">
-        <h1>Mr. <br />BitCoin</h1>
-
-        <nav>
-          <RouterLink to="/home">Home</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
-          <RouterLink to="/contact">Contact</RouterLink>
-          <RouterLink to="/statistics">Statistics</RouterLink>
-          <RouterLink v-if="!currUser" to="/"> Login</RouterLink>
-        </nav>
-      </div>
-      <p class="rate">
-        The current rate:
-        <br />
-        <span v-if="currRate">{{ currRate }}</span>
-      </p>
-      <p v-if="currUser" class="header-p">
-        Hi {{ currUser.name }}
-        <!-- <br /> -->
-        <span> <button @click="onLogout">Logout</button></span>
-      </p>
-    </div>
+  <header>
+    <h1>Mr. <br />₿itCoin</h1>
+    <p class="rate">
+      The current rate:
+      <br />
+      <span v-if="currRate"> ₿{{ currRate }}</span>
+    </p>
+    <p v-if="currUser" class="header-p">
+      Hi {{ currUser.name }}
+      <span> <button @click="onLogout">Logout</button></span>
+    </p>
   </header>
 </template>
 

@@ -3,7 +3,7 @@
     <h1>
       Welcome <span v-if="currUser">{{ currUser.name }}</span>
     </h1>
-    <p v-if="currUser">Your balance today is: {{ currUser.balance }} Bitcoin</p>
+    <p v-if="currUser">Your balance today is : ${{ currUser.balance }}</p>
     <p>
       The current Bitcoin exchange rate:
       <span v-if="currRate">{{ currRate }}</span>

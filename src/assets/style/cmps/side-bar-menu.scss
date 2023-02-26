@@ -1,0 +1,30 @@
+.side-bar-menu-section {
+    box-shadow: 3px 0px 4px 0px #dadada;
+    margin-inline-end: 35px;
+    padding-block-start: 20px;
+    width: 180px;
+}
+
+nav {
+    display: grid;
+    gap: 15px;
+    padding-inline: 35px;
+
+
+    a {
+        color: aliceblue;
+        text-decoration: none;
+        font-size: 1.2rem;
+
+        &:hover {
+            color: gold;
+
+        }
+    }
+
+    .router-link-active {
+        color: gold;
+        font-weight: bold;
+    }
+
+}
