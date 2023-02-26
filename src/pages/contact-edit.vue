@@ -1,6 +1,6 @@
 <template>
   <div v-if="contact" class="contact-edit-selection">
-    <h1>{{ getTitle }}</h1>
+    <h2>{{ getTitle }}</h2>
     <div class="contact-edit-container">
       <form @submit.prevent="onSave" v-if="contact">
         <input

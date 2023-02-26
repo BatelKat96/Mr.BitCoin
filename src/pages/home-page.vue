@@ -4,8 +4,10 @@
       <h2>
         Welcome <span v-if="currUser">{{ currUser.name }}</span>
       </h2>
-      <p v-if="currUser">Your balance in dollars is ${{ currUser.balance }}</p>
-      <p>
+
+      <p v-if="currUser">
+        Your balance in dollars is ${{ currUser.balance }}
+        <br />
         Your balance in Bitcoin is
         <span v-if="currRate">{{ currUser.balance * currRate }} BTC</span>
       </p>
@@ -14,9 +16,6 @@
         The exchange rate is
         <span v-if="currRate">{{ currRate }} </span>
       </p>
-    </div>
-    <div class="home-page-chart">
-      <PriceHistoryChart />
     </div>
   </section>
 </template>

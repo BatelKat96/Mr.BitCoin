@@ -89,8 +89,8 @@ function _createUsers() {
     let users = storageService.loadFromStorage(STORAGE_KEY_USER)
     if (!users || !users.length) {
         users = []
-        users.push(_createUser('Ben', 100, []))
-        users.push(_createUser('Lola', 100, []))
+        users.push(_createUser('Ben', 1000, []))
+        users.push(_createUser('Lola', 800, []))
 
         console.log('usersfftt:', users)
         storageService.saveToStorage(STORAGE_KEY_USER, users)

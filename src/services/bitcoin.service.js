@@ -34,11 +34,8 @@ async function getAvgBlockSize() {
     if (avg && avg.length > 0) return avg
     if (!avg || !avg.length) {
         try {
-            console.log('in:')
-
             const { data } = await axios.get('https://api.blockchain.info/charts/avg-block-size?timespan=5months&format=json&cors=true')
             avg = data
-            console.log('avg:', avg)
             storageService.saveToStorage(AVG_BLOCK_SIZE, avg)
             return avg
         } catch (err) {

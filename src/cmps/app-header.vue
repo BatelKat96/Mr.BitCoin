@@ -3,8 +3,12 @@
     <h1>Mr. <br />₿itCoin</h1>
     <p v-if="currUser" class="header-p">
       Hi {{ currUser.name }}
-      <span> <button @click="onLogout">Logout</button></span>
+      <br />
+      <span> <button class="" @click="onLogout">Logout</button></span>
     </p>
+    <RouterLink v-if="!currUser" to="/">
+      <button class="">Login</button></RouterLink
+    >
   </header>
 </template>
 
@@ -27,7 +31,7 @@ export default {
     async onLogout() {
       try {
         await this.$store.dispatch({ type: "logout" });
-        // this.$router.push("/home");
+        this.$router.push("/");
       } catch (err) {
         showErrorMsg(`Logout failed`);
       }

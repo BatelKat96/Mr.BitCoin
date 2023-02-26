@@ -1,5 +1,7 @@
 header {
-    box-shadow: 0px 0px 4px 3px #dadada;
+    background-color: #ffc107;
+    color: rgb(22, 22, 22);
+    // box-shadow: 0px 0px 4px 3px #dadada;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,7 +18,4 @@ header {
         text-align: center;
     }
 
-    .rate {
-        margin-inline-end: 10px;
-    }
 }

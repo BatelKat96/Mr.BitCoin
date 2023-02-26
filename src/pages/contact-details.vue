@@ -7,7 +7,7 @@
         <p>Phone: {{ contact.phone }}</p>
       </div>
       <img
-        :src="`https://randomuser.me/api/portraits/women/${contact.imgId}.jpg`"
+        :src="`https://randomuser.me/api/portraits/men/${contact.imgId}.jpg`"
       />
     </div>
     <RouterLink to="/contact">
