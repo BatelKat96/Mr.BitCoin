@@ -11,8 +11,8 @@
       />
     </div>
 
-    <TransferFunds @transfer="handleTransfer" />
-
+    <TransferFunds v-if="loggedInUser" @transfer="handleTransfer" />
+    <TansferList v-if="loggedInUser" :contact="contact" />
     <RouterLink to="/contact">
       <button class="btn-back">Back</button>
     </RouterLink>
@@ -23,6 +23,7 @@
 import { contactService } from "@/services/contact.service.js";
 import TransferFunds from "../cmps/transfer-funds.vue";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+import TansferList from "../cmps/tansfer-list.vue";
 
 export default {
   data() {
@@ -35,7 +36,11 @@ export default {
     const contactId = this.$route.params._id;
     this.contact = await contactService.getById(contactId);
   },
-
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.user;
+    },
+  },
   methods: {
     async handleTransfer(amount) {
       try {
@@ -46,8 +51,6 @@ export default {
           amount: amount,
           currContact: this.contact,
         });
-        // await userService.updateBalance(amount, this.contact);
-        // this.$router.push("/contact");
         showSuccessMsg("Transfer successfully sent");
       } catch (err) {
         console.log(err);
@@ -57,6 +60,7 @@ export default {
   },
   components: {
     TransferFunds,
+    TansferList,
   },
 };
 </script>

@@ -54,25 +54,22 @@ async function logout() {
 
 async function updateBalance(amount, currContact) {
     const transaction = {
-        toId: contact._id,
+        toId: currContact._id,
         to: currContact.name,
-        at: Date.now(),
+        date: Date.now(),
         amount,
     }
     const user = getLoggedinUser()
     if (!user) throw new Error('Not loggedin')
     user.balance -= amount
     user.transactions.push(transaction)
-
-    const updateUser = await asyncStorageService.put(STORAGE_KEY_USER, user)
-
-    if (getLoggedinUser()._id === updateUser._id) saveLocalUser(updateUser)
-    return updateUser.balance
+    await asyncStorageService.put(STORAGE_KEY_USER, user)
+    if (getLoggedinUser()._id === user._id) saveLocalUser(user)
+    return user
 }
 
 
 function saveLocalUser(user) {
-    user = { _id: user._id, name: user.name, balance: user.balance, transactions: user.transactions }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -80,16 +77,6 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
-
-
-// async function update({ _id, balance }) {
-//     const user = await asyncStorageService.get('user', _id)
-//     user.balance = balance
-//     await asyncStorageService.put('user', user)
-
-//     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
-//     return user
-// }
 
 
 function _createUsers() {

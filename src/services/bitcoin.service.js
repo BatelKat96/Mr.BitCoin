@@ -59,7 +59,7 @@ async function getMarketPriceHistory() {
         // get formatted days
         const timestamps = priceHistoryByDay.map((value) => value.x)
         const formattedDates = timestamps.map((timestamp) =>
-            utilService.getFormattedDate(timestamp)
+            utilService.getFormattedDate(timestamp * 1000)
         )
 
         // get prices

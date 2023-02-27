@@ -17,14 +17,15 @@
         <span v-if="currRate">{{ currRate }} </span>
       </p>
     </div>
+    <TansferList v-if="currUser" />
   </section>
 </template>
 <script>
 import { bitcoinService } from "@/services/bitcoin.service.js";
 import PriceHistoryChart from "../cmps/price-history-chart.vue";
+import TansferList from "../cmps/tansfer-list.vue";
 
 export default {
-  components: { PriceHistoryChart },
   data() {
     return {
       currRate: null,
@@ -46,6 +47,10 @@ export default {
         console.log("Cant load rate");
       }
     },
+  },
+  components: {
+    PriceHistoryChart,
+    TansferList,
   },
 };
 </script>
