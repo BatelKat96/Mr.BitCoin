@@ -1,5 +1,5 @@
 .side-bar-menu-section {
-    box-shadow: 3px 0px 4px 0px #dadada;
+    box-shadow: 3px 0px 4px 0px $bx-shdw-clr;
     padding-block-start: 30px;
     width: 180px;
 }
@@ -11,18 +11,18 @@ nav {
 
 
     a {
-        color: aliceblue;
+        color: $clr3;
         text-decoration: none;
         font-size: 1.2rem;
 
         &:hover {
-            color: gold;
+            color: $clr2;
 
         }
     }
 
     .router-link-active {
-        color: gold;
+        color: $clr2;
         font-weight: bold;
     }
 

@@ -1,11 +1,14 @@
-@import "setup/mixins";
-@import "setup/variables";
+//Setup
+@import "setup/mixins.scss";
+@import "setup/variables.scss";
 
+
+//Basic
 @import "basic/base.scss";
-@import "basic/layout";
+@import "basic/layout.scss";
 
 
-
+//Pages
 @import "pages/home-page.scss";
 @import "pages/contact-details.scss";
 @import "pages/contact-edit.scss";
@@ -13,6 +16,8 @@
 @import "pages/statistics.scss";
 @import "pages/login-signup.scss";
 
+
+//Cmps
 @import "cmps/app-header.scss";
 @import "cmps/side-bar-menu.scss";
 @import "cmps/app-footer.scss";

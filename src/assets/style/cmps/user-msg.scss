@@ -9,7 +9,7 @@
     padding: 6px;
     background-color: rgb(108, 130, 138);
     border-radius: 5px;
-    color: white;
+    color: $clr3;
 }
 
 .v-enter-active,
@@ -25,7 +25,7 @@
 
 
 .user-msg {
-    color: white;
+    color: $clr3;
     padding: 10px;
     font-size: 1.4em;
     position: absolute;
