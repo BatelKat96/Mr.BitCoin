@@ -1,39 +1,38 @@
 <template>
   <div class="chart-container">
-    <Bar
-      v-if="avgs"
-      id="my-chart-id"
-      :options="chartOptions"
-      :data="getChartData"
-    />
+    <Line v-if="avgs" :options="chartOptions" :data="getChartData" />
   </div>
 </template>
 
 <script>
 import { bitcoinService } from "../services/bitcoin.service.js";
-import { Bar } from "vue-chartjs";
+import { Line } from "vue-chartjs";
 import {
   Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
+  Filler,
 } from "chart.js";
 
 ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
+  Filler
 );
 
 export default {
-  name: "BarChart",
-  components: { Bar },
+  name: "LineChart",
+  components: { Line },
   data() {
     return {
       avgs: null,
@@ -53,6 +52,9 @@ export default {
           {
             label: "Avarage block size (in MB)",
             backgroundColor: "#ffc107",
+            borderColor: "#ffc107",
+            pointRadius: 0,
+            lineTension: 0.2,
             data: this.getDatasetData,
           },
         ],

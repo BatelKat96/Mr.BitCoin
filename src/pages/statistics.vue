@@ -2,7 +2,6 @@
   <section class="statistics-section">
     <h2>Statistics</h2>
     <PriceHistoryChart />
-
     <AvgChart />
   </section>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <ul class="contact-preview-list">
+    <TransitionGroup name="list" tag="ul" class="contact-preview-list">
       <li
         class="contact-preview"
         v-for="contact in contacts"
@@ -26,7 +26,7 @@
           </RouterLink>
         </div>
       </li>
-    </ul>
+    </TransitionGroup>
   </section>
 </template>
 
