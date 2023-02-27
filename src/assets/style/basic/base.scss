@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: rgb(25, 24, 24);
   color: aliceblue;
@@ -6,7 +10,7 @@ body {
 }
 
 main {
-  min-height: calc(81vh);
+  min-height: 85vh;
   display: flex;
 }
 
@@ -34,6 +38,7 @@ button {
 
   &.btn-back {
     padding: 8px 20px;
+    float: right;
   }
 }
 
@@ -46,4 +51,10 @@ img {
   border-radius: 50%;
   object-fit: cover;
   width: 150px;
+}
+
+input {
+  padding: 7px;
+  border-radius: 5px;
+
 }

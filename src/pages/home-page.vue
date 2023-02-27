@@ -4,10 +4,8 @@
       <h2>
         Welcome <span v-if="currUser">{{ currUser.name }}</span>
       </h2>
-
-      <p v-if="currUser">
-        Your balance in dollars is ${{ currUser.balance }}
-        <br />
+      <p v-if="currUser">Your balance in dollars is ${{ currUser.balance }}</p>
+      <p>
         Your balance in Bitcoin is
         <span v-if="currRate">{{ currUser.balance * currRate }} BTC</span>
       </p>
@@ -17,6 +15,7 @@
         <span v-if="currRate">{{ currRate }} </span>
       </p>
     </div>
+    <img src="../../public/bitcoin-icon.svg" alt="" srcset="" />
     <TansferList v-if="currUser" />
   </section>
 </template>

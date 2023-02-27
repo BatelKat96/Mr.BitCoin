@@ -5,11 +5,19 @@
 
     .home-page-container {
         margin: 0 auto;
-        width: 50%;
+        width: 60%;
         background-color: rgba(240, 248, 255, 0.221);
         padding: 35px 50px 50px;
         border-radius: 5px;
         margin-bottom: 50px;
+        position: relative;
+    }
+
+    img {
+        opacity: 0.5;
+        position: absolute;
+        right: 14%;
+        top: 40%
     }
 
     h2 {
