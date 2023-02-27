@@ -4,10 +4,12 @@
     <p v-if="currUser" class="header-p">
       Hi {{ currUser.name }}
       <br />
-      <span> <button class="" @click="onLogout">Logout</button></span>
+      <span>
+        <button class="log-btn-header" @click="onLogout">Logout</button></span
+      >
     </p>
     <RouterLink v-if="!currUser" to="/">
-      <button class="">Login</button></RouterLink
+      <button class="log-btn-header">Login</button></RouterLink
     >
   </header>
 </template>

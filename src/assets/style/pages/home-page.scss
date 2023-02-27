@@ -5,23 +5,38 @@
 
     .home-page-container {
         margin: 0 auto;
-        width: 60%;
         background-color: rgba(240, 248, 255, 0.221);
         padding: 35px 50px 50px;
         border-radius: 5px;
         margin-bottom: 50px;
         position: relative;
+        width: 60vw;
     }
 
     img {
-        opacity: 0.5;
+        opacity: 0.3;
         position: absolute;
-        right: 14%;
-        top: 40%
+        right: 10%;
+        top: 35%
     }
 
     h2 {
         text-align: center;
+        font-size: 2.3em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+        margin-bottom: 0;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-block: 10px;
+    }
+
+    .value {
+        color: #ffc107;
     }
 
 
