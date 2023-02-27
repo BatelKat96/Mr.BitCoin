@@ -8,6 +8,17 @@
         // padding: 30px;
     }
 
+    fieldset {
+        padding: 20px;
+    }
+
+    legend {
+        display: block;
+        padding-inline-start: 10px;
+        padding-inline-end: 10px;
+        font-size: 1.1em;
+    }
+
     input {
         padding: 7px;
         border-radius: 4px;

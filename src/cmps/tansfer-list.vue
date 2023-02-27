@@ -2,14 +2,18 @@
   <section class="tansfer-list-section">
     <h3>Last transactions</h3>
     <ul class="transfer-list">
+      <li class="list-header">
+        <span v-if="!contact">To </span> <span>Date</span> <span>Amount </span>
+      </li>
       <li
         class="list-preview"
         v-for="transaction in transactions"
         :key="transaction.date"
       >
-        <span>To {{ transaction.to }} - </span>
-        <span> At {{ formatedDate(transaction) }} - </span>
-        <span> Amount ${{ transaction.amount }}</span>
+        <span v-if="!contact">{{ transaction.to }}</span>
+
+        <span>{{ formatedDate(transaction) }}</span>
+        <span>${{ transaction.amount }}</span>
       </li>
     </ul>
   </section>
@@ -47,5 +51,5 @@ export default {
 };
 </script>
 
-<style>
+<style >
 </style>
