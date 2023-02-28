@@ -7,7 +7,7 @@
         <p>Phone: {{ contact.phone }}</p>
       </div>
       <img
-        :src="`https://randomuser.me/api/portraits/men/${contact.imgId}.jpg`"
+        :src="`https://randomuser.me/api/portraits/${contact.gender}/${contact.imgId}.jpg`"
       />
     </div>
 

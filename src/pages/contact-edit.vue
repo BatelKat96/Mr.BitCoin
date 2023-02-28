@@ -22,7 +22,7 @@
       </form>
       <img
         v-if="contact._id"
-        :src="`https://randomuser.me/api/portraits/men/${contact.imgId}.jpg`"
+        :src="`https://randomuser.me/api/portraits/${contact.gender}/${contact.imgId}.jpg`"
       />
     </div>
     <RouterLink to="/contact">

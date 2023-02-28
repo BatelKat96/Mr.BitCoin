@@ -3,7 +3,8 @@
 export const utilService = {
     makeId,
     getRandomInt,
-    getFormattedDate
+    getFormattedDate,
+    getRandomGender
 }
 
 function makeId() {
@@ -29,4 +30,11 @@ function getFormattedDate(timeStamp) {
         '/' +
         dateFormat.getFullYear()
     return formattedDate
+}
+
+
+function getRandomGender() {
+    const gender = Math.floor(Math.random() * 2);
+    if (gender === 0) return 'women'
+    else return 'men'
 }

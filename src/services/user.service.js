@@ -83,7 +83,12 @@ function _createUsers() {
     let users = storageService.loadFromStorage(STORAGE_KEY_USER)
     if (!users || !users.length) {
         users = []
-        users.push(_createUser('Ben', 1000, []))
+        users.push(_createUser('Ben', 1000, [
+            { toId: "5a56640269f443a5d64b32ca", to: "Ochoa Hyde", date: 1677576008013, amount: 30 },
+            { toId: "5a5664025f6ae9aa24a99fde", to: "Hallie Mclean", date: 1677576021050, amount: 5 },
+            { toId: "5a566402ed1cf349f0b47b4d", to: "Rachel Lowe", date: 1677576056492, amount: 16 },
+            { toId: "5a566402ed1cf349f0b47b4d", to: "Rachel Lowe", date: 1677576057796, amount: 16 },
+        ]))
         users.push(_createUser('Lola', 800, []))
         storageService.saveToStorage(STORAGE_KEY_USER, users)
     }

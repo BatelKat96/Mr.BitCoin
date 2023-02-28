@@ -2,7 +2,7 @@
   <article class="contact-preview-article">
     <h3>{{ contact.name }}</h3>
     <img
-      :src="`https://randomuser.me/api/portraits/men/${contact.imgId}.jpg`"
+      :src="`https://randomuser.me/api/portraits/${contact.gender}/${contact.imgId}.jpg`"
     />
   </article>
 </template>
