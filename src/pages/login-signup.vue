@@ -40,6 +40,8 @@
         {{ !isSignup ? "Signup" : "Login" }}
       </button>
     </p>
+
+    <img src="/bitcoin-icons-for-log.png" />
   </section>
 </template>
 

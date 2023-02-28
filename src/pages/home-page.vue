@@ -20,7 +20,7 @@
         <span v-if="currRate">$1 = {{ currRate }} BTC </span>
       </p>
     </div>
-    <img src="../../public/bitcoin-icon.svg" alt="" srcset="" />
+    <img src="/bitcoin-icon.svg" />
     <TansferList v-if="currUser" />
   </section>
 </template>

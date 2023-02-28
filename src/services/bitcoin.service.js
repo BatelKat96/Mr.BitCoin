@@ -68,7 +68,7 @@ async function getMarketPriceHistory() {
         // create object to send back to cmp
         const priceHistory = {
             labels: formattedDates,
-            datasets: [{ label: 'Prices (USD)', data: prices, backgroundColor: '#ffc107' }],
+            datasets: [{ label: 'Market Prices (USD)', data: prices, backgroundColor: '#ffc107' }],
         }
         return priceHistory
     } catch (err) {
