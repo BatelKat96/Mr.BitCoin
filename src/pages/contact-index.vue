@@ -51,7 +51,4 @@ export default {
 </script>
 
 <style lang="scss">
-.main-container {
-  position: relative;
-}
 </style>

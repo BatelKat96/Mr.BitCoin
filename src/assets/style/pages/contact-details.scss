@@ -1,16 +1,35 @@
 .contact-details-selection {
-    margin: 0 auto;
     flex-grow: 1;
     padding: 25px 35px;
 
     .contact-details-container {
         display: flex;
         align-items: center;
-        gap: 100px;
+        flex-direction: column-reverse;
+        gap: 30px;
         margin-block-end: 30px;
 
         a {
             margin-inline-start: 20px;
+        }
+
+        p {
+            margin: 0 0 8px 0;
+        }
+    }
+
+    .btn-back {
+        float: right;
+    }
+}
+
+@include for-narrow-layout {
+    .contact-details-selection {
+        margin: 0 auto;
+
+        .contact-details-container {
+            flex-direction: row;
+            gap: 100px;
         }
     }
 }

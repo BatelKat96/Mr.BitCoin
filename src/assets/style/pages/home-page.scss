@@ -1,5 +1,5 @@
 .home-page-section {
-    margin: 0 auto;
+
     flex-grow: 1;
     padding: 25px 35px;
 
@@ -10,7 +10,6 @@
         border-radius: 5px;
         margin-bottom: 50px;
         position: relative;
-        width: 60vw;
     }
 
     img {
@@ -40,4 +39,10 @@
     }
 
 
+}
+
+@include for-narrow-layout {
+    .home-page-container {
+        width: 60vw;
+    }
 }

@@ -1,12 +1,21 @@
 .contact-index-section {
-    margin: 0 auto;
     flex-grow: 1;
     padding: 25px 35px;
 
     .contact-index-actions {
         display: flex;
-        align-items: center;
+        flex-direction: column-reverse;
+        gap: 10px;
         justify-content: space-between;
         margin-bottom: 20px;
+    }
+}
+
+@include for-narrow-layout {
+    .contact-index-section {
+        .contact-index-actions {
+            align-items: center;
+            flex-direction: row;
+        }
     }
 }

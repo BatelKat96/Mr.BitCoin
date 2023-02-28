@@ -1,12 +1,12 @@
 .contact-edit-selection {
-    margin: 0 auto;
     flex-grow: 1;
     padding: 25px 35px;
 
     .contact-edit-container {
         display: flex;
+        flex-direction: column-reverse;
         align-items: start;
-        gap: 100px;
+        gap: 30px;
         margin-block-end: 20px;
 
         a {
@@ -26,4 +26,13 @@
         }
     }
 
+}
+
+@include for-narrow-layout {
+    .contact-edit-selection {
+        .contact-edit-container {
+            flex-direction: row;
+            gap: 100px;
+        }
+    }
 }

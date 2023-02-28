@@ -16,7 +16,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5em;
-        font-size: 1.2em;
+        font-size: 0.8em;
 
         li {
             display: flex;
@@ -24,11 +24,26 @@
         }
 
         span {
-            min-width: 150px;
+            min-width: 100px;
         }
 
         .list-header {
             font-weight: bold;
         }
     }
+}
+
+@include for-narrow-layout {
+    .tansfer-list-section {
+
+        ul {
+            font-size: 1.2em;
+            gap: 0.5em;
+
+            span {
+                min-width: 150px;
+            }
+        }
+    }
+
 }

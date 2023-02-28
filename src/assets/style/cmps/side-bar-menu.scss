@@ -1,12 +1,12 @@
 .side-bar-menu-section {
     box-shadow: 3px 0px 4px 0px $bx-shdw-clr;
-    padding-block-start: 30px;
-    width: 180px;
+    padding-block: 15px;
+    width: 100%;
 }
 
 nav {
-    display: grid;
-    gap: 15px;
+    display: flex;
+    gap: 17px;
     padding-inline: 35px;
 
 
@@ -26,4 +26,15 @@ nav {
         font-weight: bold;
     }
 
+}
+
+@include for-normal-layout {
+    .side-bar-menu-section {
+        width: 180px;
+        padding-block-start: 25px;
+    }
+
+    nav {
+        display: grid;
+    }
 }
