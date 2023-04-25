@@ -45,8 +45,9 @@ Clone the project or dowload the files on top.
 ```
 git clone https://github.com/BatelKat96/Mr.BitCoin.git
 ```
-Open the terminal and enter the following line to run it locally on your computer:
+Open the terminal and enter the following lines to download the libraries and run it locally on your computer:
 ```
+npm i
 npm run dev 
 ```
 Runs the app in the development mode.
@@ -54,11 +55,11 @@ Open http://localhost:5173 to view it in the browser.
 
 ## Showcase
 
-### Your contact
+### Your contacts
 You can view your different contacts, filter them by name. 
 In addition, you can transform money, to one of your contacts.
 
-![Contacts page image](src/assets/imgs/all-contacts.jpg "Contacts page")
+![Contacts page image](src/assets/img/all-contacts.jpg "Contacts page")
 
 
 ### Some mobile!
